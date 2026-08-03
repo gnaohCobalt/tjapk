@@ -57,7 +57,7 @@
     </header>
 
     <!-- Main Content Container -->
-    <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-4 mb-12">
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-4 mb-4 md:mb-6">
         
         <div class="glow-card border border-slate-800/80 rounded-3xl p-6 md:p-8 backdrop-blur-xl relative overflow-hidden">
             
@@ -71,7 +71,7 @@
                 </div>
 
                 <!-- Reset Button -->
-                <button onclick="resetNavigation()" id="reset-btn" class="hidden text-xs font-semibold px-3 py-1.5 rounded-xl bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 text-slate-300 transition-all cursor-pointer items-center gap-1.5">
+                <button onclick="navigateTo('')" id="reset-btn" class="hidden text-xs font-semibold px-3 py-1.5 rounded-xl bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 text-slate-300 transition-all cursor-pointer items-center gap-1.5">
                     <i class="fa-solid fa-rotate-left"></i> Bắt đầu lại
                 </button>
             </div>
@@ -84,7 +84,7 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
                     <!-- Android -->
-                    <button onclick="selectOS('android')" class="group text-center p-6 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-emerald-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
+                    <button onclick="navigateTo('android')" class="group text-center p-6 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-emerald-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
                         <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl mb-4 group-hover:scale-110 transition-transform">
                             <i class="fa-brands fa-android"></i>
                         </div>
@@ -93,7 +93,7 @@
                     </button>
 
                     <!-- Windows -->
-                    <button onclick="selectOS('windows')" class="group text-center p-6 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-sky-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
+                    <button onclick="navigateTo('windows')" class="group text-center p-6 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-sky-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
                         <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 text-xl mb-4 group-hover:scale-110 transition-transform">
                             <i class="fa-brands fa-windows"></i>
                         </div>
@@ -102,7 +102,7 @@
                     </button>
 
                     <!-- iOS (Bên phải Windows - Bản Trung CN) -->
-                    <button onclick="selectOS('ios')" class="group text-center p-6 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-amber-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
+                    <button onclick="navigateTo('ios')" class="group text-center p-6 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-amber-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
                         <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl mb-4 group-hover:scale-110 transition-transform">
                             <i class="fa-brands fa-apple"></i>
                         </div>
@@ -120,7 +120,7 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
                     <!-- Bản chính thức -->
-                    <button onclick="showFinalContent('official')" class="group text-center p-5 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-amber-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
+                    <button onclick="navigateTo('android', 'official')" class="group text-center p-5 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-amber-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
                         <div class="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-lg mb-3 group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-store"></i>
                         </div>
@@ -129,7 +129,7 @@
                     </button>
 
                     <!-- Bilibili -->
-                    <button onclick="showFinalContent('bilibili')" class="group text-center p-5 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-pink-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
+                    <button onclick="navigateTo('android', 'bilibili')" class="group text-center p-5 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-pink-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
                         <div class="w-11 h-11 rounded-xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-400 text-lg mb-3 group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-tv"></i>
                         </div>
@@ -138,7 +138,7 @@
                     </button>
 
                     <!-- Lenovo -->
-                    <button onclick="showFinalContent('lenovo')" class="group text-center p-5 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-cyan-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
+                    <button onclick="navigateTo('android', 'lenovo')" class="group text-center p-5 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-cyan-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
                         <div class="w-11 h-11 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-lg mb-3 group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-tablet-screen-button"></i>
                         </div>
@@ -193,11 +193,8 @@
                     </p>
                 </div>
 
-                <!-- ========================================================================= -->
                 <!-- KHUNG 5: IOS — BẢN TRUNG (CN) -->
-                <!-- ========================================================================= -->
                 <div id="box-ios-cn" class="content-box hidden border-2 border-dashed border-slate-700/80 rounded-2xl p-6 md:p-10 bg-slate-950/40 min-h-[220px]">
-                    <!-- CHÈN CHỮ VÀ LINK TẢI BẢN IOS TRUNG QUỐC (CN) VÀO ĐÂY -->
                     <p class="text-slate-300 text-sm">
                         Để tải Tom and Jerry:Chase CN vui lòng chuyển vùng App Store của bạn sang Trung Quốc: Đại Lục:<a href="https://apps.apple.com/cn/app/%E7%8C%AB%E5%92%8C%E8%80%81%E9%BC%A0/id954751394" class="text-amber-400 font-bold hover:underline">Link Tom and Jerry:Chase CN trên App Store Trung Quốc</a>.
                     </p>
@@ -208,42 +205,95 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="mt-auto py-6 text-center text-xs text-slate-500 border-t border-slate-900">
+    <!-- Footer gọn gàng, đẩy cao vừa phải trên mọi máy -->
+    <footer class="py-4 pb-6 text-center text-xs text-slate-500 border-t border-slate-900/80">
         <p class="mb-1"><i class="fa-solid fa-gamepad mr-1"></i> Tom and Jerry: Chase CN Version — Download Link</p>
         <p class="text-slate-600">Yêu cầu cập nhật link tải <a href="https://m.me/1253584067831908" class="text-amber-400 font-bold hover:underline"> tại đây.</a>. </p>
     </footer>
 
-    <!-- JavaScript Logic Điều hướng -->
+    <!-- JavaScript Logic Điều hướng & Lưu URL Hash -->
     <script>
         let currentOS = '';
         let currentSub = '';
 
-        function selectOS(os) {
-            currentOS = os;
-            document.getElementById('step-1').classList.add('hidden');
-            document.getElementById('final-content').classList.add('hidden');
-            document.getElementById('reset-btn').classList.remove('hidden');
+        // Hàm cập nhật URL Hash
+        function navigateTo(os, sub = '') {
+            if (!os) {
+                if (window.location.hash) {
+                    history.pushState("", document.title, window.location.pathname + window.location.search);
+                }
+                handleRoute();
+                return;
+            }
+            let hash = os;
+            if (sub) hash += '/' + sub;
+            window.location.hash = hash;
+        }
 
-            document.getElementById('step-2-android').classList.add('hidden');
+        // Hàm xử lý hiển thị giao diện dựa vào Hash trên URL
+        function handleRoute() {
+            const hash = window.location.hash.replace(/^#\/?/, '').trim();
+            if (!hash) {
+                showStep1UI();
+                return;
+            }
+
+            const parts = hash.split('/');
+            const os = parts[0].toLowerCase();
+            const sub = parts[1] ? parts[1].toLowerCase() : '';
 
             if (os === 'android') {
-                document.getElementById('step-2-android').classList.remove('hidden');
-                updateBreadcrumb([
-                    {label: 'Android', icon: 'fa-brands fa-android', color: 'text-emerald-400'}
-                ]);
+                currentOS = 'android';
+                if (sub && ['official', 'bilibili', 'lenovo'].includes(sub)) {
+                    showFinalContentUI('android', sub);
+                } else {
+                    showStep2AndroidUI();
+                }
             } else if (os === 'ios') {
-                showFinalContent('cn');
+                currentOS = 'ios';
+                showFinalContentUI('ios', 'cn');
             } else if (os === 'windows') {
-                showFinalContent('');
+                currentOS = 'windows';
+                showFinalContentUI('windows', '');
+            } else {
+                showStep1UI();
             }
         }
 
-        function showFinalContent(subKey) {
+        function showStep1UI() {
+            currentOS = '';
+            currentSub = '';
+            document.getElementById('step-1').classList.remove('hidden');
+            document.getElementById('step-2-android').classList.add('hidden');
+            document.getElementById('final-content').classList.add('hidden');
+            document.getElementById('reset-btn').classList.add('hidden');
+
+            document.getElementById('breadcrumb-container').innerHTML = `
+                <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 border border-slate-700/60 text-slate-200 flex items-center gap-1.5">
+                    <i class="fa-solid fa-globe text-cyan-400"></i> Bắt đầu
+                </span>
+            `;
+        }
+
+        function showStep2AndroidUI() {
+            document.getElementById('step-1').classList.add('hidden');
+            document.getElementById('step-2-android').classList.remove('hidden');
+            document.getElementById('final-content').classList.add('hidden');
+            document.getElementById('reset-btn').classList.remove('hidden');
+
+            updateBreadcrumb([
+                {label: 'Android', icon: 'fa-brands fa-android', color: 'text-emerald-400'}
+            ]);
+        }
+
+        function showFinalContentUI(os, subKey) {
+            currentOS = os;
             currentSub = subKey;
-            
+
+            document.getElementById('step-1').classList.add('hidden');
             document.getElementById('step-2-android').classList.add('hidden');
             document.getElementById('final-content').classList.remove('hidden');
+            document.getElementById('reset-btn').classList.remove('hidden');
 
             const boxes = document.querySelectorAll('.content-box');
             boxes.forEach(box => box.classList.add('hidden'));
@@ -251,12 +301,12 @@
             let targetBoxId = '';
             let subNameDisplay = '';
 
-            if (currentOS === 'android') {
+            if (os === 'android') {
                 targetBoxId = `box-android-${subKey}`;
                 if (subKey === 'official') subNameDisplay = 'Bản chính thức';
                 if (subKey === 'bilibili') subNameDisplay = 'Bilibili';
                 if (subKey === 'lenovo') subNameDisplay = 'Lenovo';
-            } else if (currentOS === 'ios') {
+            } else if (os === 'ios') {
                 targetBoxId = 'box-ios-cn';
                 subNameDisplay = 'Bản Trung (CN)';
             } else {
@@ -270,17 +320,17 @@
 
             let breadcrumbItems = [];
             
-            if (currentOS === 'android') {
+            if (os === 'android') {
                 breadcrumbItems.push({
                     label: 'Android', 
                     icon: 'fa-brands fa-android', 
                     color: 'text-emerald-400',
-                    action: "selectOS('android')"
+                    action: "navigateTo('android')"
                 });
                 if (subNameDisplay) {
                     breadcrumbItems.push({label: subNameDisplay, icon: 'fa-check', color: 'text-amber-400'});
                 }
-            } else if (currentOS === 'ios') {
+            } else if (os === 'ios') {
                 breadcrumbItems.push({
                     label: 'iOS (CN)', 
                     icon: 'fa-brands fa-apple', 
@@ -296,9 +346,9 @@
 
             updateBreadcrumb(breadcrumbItems);
 
-            const osName = currentOS === 'android' ? 'Android' : (currentOS === 'ios' ? 'iOS (Bản Trung)' : 'Windows (PC)');
+            const osName = os === 'android' ? 'Android' : (os === 'ios' ? 'iOS (Bản Trung)' : 'Windows (PC)');
             let pathString = osName;
-            if (currentOS === 'android' && subNameDisplay) pathString += ` — ${subNameDisplay}`;
+            if (os === 'android' && subNameDisplay) pathString += ` — ${subNameDisplay}`;
             document.getElementById('selection-path-title').innerText = pathString;
         }
 
@@ -322,21 +372,9 @@
             document.getElementById('breadcrumb-container').innerHTML = html;
         }
 
-        function resetNavigation() {
-            currentOS = '';
-            currentSub = '';
-            
-            document.getElementById('step-1').classList.remove('hidden');
-            document.getElementById('step-2-android').classList.add('hidden');
-            document.getElementById('final-content').classList.add('hidden');
-            document.getElementById('reset-btn').classList.add('hidden');
-
-            document.getElementById('breadcrumb-container').innerHTML = `
-                <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 border border-slate-700/60 text-slate-200 flex items-center gap-1.5">
-                    <i class="fa-solid fa-globe text-cyan-400"></i> Bắt đầu
-                </span>
-            `;
-        }
+        // Đăng ký sự kiện thay đổi hash URL và khi tải lại trang (F5)
+        window.addEventListener('hashchange', handleRoute);
+        window.addEventListener('DOMContentLoaded', handleRoute);
     </script>
 </body>
 </html>
