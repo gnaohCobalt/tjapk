@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng dẫn tải Tom and Jerry: Chase CN Version</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #090a0f;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .glow-card {
+            background: linear-gradient(145deg, rgba(18, 22, 33, 0.9) 0%, rgba(10, 13, 20, 0.95) 100%);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+        .step-transition {
+            animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-slate-100 min-h-screen flex flex-col selection:bg-amber-500 selection:text-slate-950">
+
+    <!-- Header / Logo -->
+    <header class="pt-8 pb-4 px-4 text-center">
+        <div class="inline-flex items-center gap-3 bg-slate-900/90 border border-slate-800 p-1.5 rounded-full shadow-inner mb-6">
+            <div class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-sm font-bold shadow-sm">
+                <i class="fa-solid fa-cat"></i>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-sm font-bold shadow-sm">
+                <i class="fa-solid fa-mouse"></i>
+            </div>
+        </div>
+        
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-amber-500/10 via-cyan-500/10 to-transparent border border-slate-800 text-xs font-semibold text-amber-400 tracking-wider uppercase mb-3">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> LIÊN KẾT TẢI GAME <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+        
+        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-3">
+            Tom and Jerry: <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-cyan-400">Chase CN Version</span>
+        </h1>
+        <p class="text-xs md:text-sm text-slate-400 max-w-md mx-auto">
+            Chọn hệ điều hành của bạn để xem đường link tải chi tiết.
+        </p>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-4 mb-12">
+        
+        <div class="glow-card border border-slate-800/80 rounded-3xl p-6 md:p-8 backdrop-blur-xl relative overflow-hidden">
+            
+            <!-- Navigation Header / Breadcrumbs -->
+            <div class="flex items-center justify-between border-b border-slate-800/80 pb-4 mb-6">
+                <!-- Breadcrumb Path -->
+                <div id="breadcrumb-container" class="flex items-center gap-2 text-xs md:text-sm font-medium text-slate-400 overflow-x-auto py-1">
+                    <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 border border-slate-700/60 text-slate-200 flex items-center gap-1.5">
+                        <i class="fa-solid fa-globe text-cyan-400"></i> Bắt đầu
+                    </span>
+                </div>
+
+                <!-- Reset Button -->
+                <button onclick="resetNavigation()" id="reset-btn" class="hidden text-xs font-semibold px-3 py-1.5 rounded-xl bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 text-slate-300 transition-all cursor-pointer items-center gap-1.5">
+                    <i class="fa-solid fa-rotate-left"></i> Bắt đầu lại
+                </button>
+            </div>
+
+            <!-- ================= STEP 1: CHỌN HỆ ĐIỀU HÀNH ================= -->
+            <div id="step-1" class="step-transition">
+                <div class="text-center mb-6">
+                    <h2 class="text-lg md:text-xl font-bold text-white mb-1">Chọn hệ điều hành</h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+                    <!-- Android -->
+                    <button onclick="selectOS('android')" class="group text-center p-6 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-emerald-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-android"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-200 group-hover:text-emerald-400 mb-1">Android</h3>
+                        <p class="text-[11px] text-slate-500 font-medium">Chọn kênh tải APK</p>
+                    </button>
+
+                    <!-- Windows -->
+                    <button onclick="selectOS('windows')" class="group text-center p-6 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-sky-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
+                        <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 text-xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-windows"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-200 group-hover:text-sky-400 mb-1">Windows</h3>
+                        <p class="text-[11px] text-slate-500 font-medium">PC Client (.exe)</p>
+                    </button>
+
+                    <!-- iOS (Bên phải Windows - Bản Trung CN) -->
+                    <button onclick="selectOS('ios')" class="group text-center p-6 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-amber-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-apple"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-200 group-hover:text-amber-400 mb-1">iOS</h3>
+                        <p class="text-[11px] text-slate-500 font-medium">Bản Trung (CN)</p>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ================= STEP 2: CHỌN KÊNH TẢI ANDROID ================= -->
+            <div id="step-2-android" class="step-transition hidden">
+                <div class="text-center mb-6">
+                    <h2 class="text-lg md:text-xl font-bold text-white mb-1">Chọn kênh tải Android</h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+                    <!-- Bản chính thức -->
+                    <button onclick="showFinalContent('official')" class="group text-center p-5 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-amber-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
+                        <div class="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-lg mb-3 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        <h3 class="text-sm font-bold text-slate-200 group-hover:text-amber-400 mb-0.5">Bản chính thức</h3>
+                        <p class="text-[10px] text-slate-500 uppercase font-medium">Official APK</p>
+                    </button>
+
+                    <!-- Bilibili -->
+                    <button onclick="showFinalContent('bilibili')" class="group text-center p-5 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-pink-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
+                        <div class="w-11 h-11 rounded-xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-400 text-lg mb-3 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-tv"></i>
+                        </div>
+                        <h3 class="text-sm font-bold text-slate-200 group-hover:text-pink-400 mb-0.5">Bilibili</h3>
+                        <p class="text-[10px] text-slate-500 uppercase font-medium">Bilibili Channel</p>
+                    </button>
+
+                    <!-- Lenovo -->
+                    <button onclick="showFinalContent('lenovo')" class="group text-center p-5 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-cyan-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
+                        <div class="w-11 h-11 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-lg mb-3 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-tablet-screen-button"></i>
+                        </div>
+                        <h3 class="text-sm font-bold text-slate-200 group-hover:text-cyan-400 mb-0.5">Lenovo</h3>
+                        <p class="text-[10px] text-slate-500 uppercase font-medium">Lenovo Store</p>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ================= KẾT QUẢ / KHUNG NỘI DUNG TẢI ================= -->
+            <div id="final-content" class="step-transition hidden">
+                
+                <div class="mb-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-slate-800/80 border border-slate-700 text-xs font-semibold text-slate-300 mb-2">
+                        <i class="fa-solid fa-download text-amber-400"></i> <span id="selection-path-title">Khu vực nội dung tải xuống</span>
+                    </div>
+                </div>
+
+                <!-- KHUNG 1: ANDROID — BẢN CHÍNH THỨC -->
+                <div id="box-android-official" class="content-box hidden border-2 border-dashed border-slate-700/80 rounded-2xl p-6 md:p-10 bg-slate-950/40 min-h-[220px]">
+                    <p class="text-slate-300 text-sm">
+                        Tải ứng dụng chính thức tại <a href="https://adl.netease.com/d/g/tnj/c/gw" class="text-amber-400 font-bold hover:underline">Link Tải Bản Chính Thức (APK)</a>.
+                    </p>
+                </div>
+
+                <!-- KHUNG 2: ANDROID — BILIBILI -->
+                <div id="box-android-bilibili" class="content-box hidden border-2 border-dashed border-slate-700/80 rounded-2xl p-6 md:p-10 bg-slate-950/40 min-h-[220px]">
+                    <p class="text-slate-300 text-sm">
+                        Tải bản Bilibili tại <a href="https://pkg.biligame.com/games/mhls_7.49.2_1_20260612_113743_1f3a6.apk" class="text-pink-400 font-bold hover:underline">Link Tải Kênh Bilibili</a>.
+                    </p>
+                    
+                    <p class="text-slate-300 text-sm mt-2">
+                        Link dự phòng: <a href="https://release-assets.githubusercontent.com/github-production-release-asset/1287085106/f00fe7d7-9947-482e-bd46-06fd4044cd60?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-03T10%3A47%3A12Z&rscd=attachment%3B+filename%3Dbilibili7492.apk&rsct=application%2Fvnd.android.package-archive&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-03T09%3A47%3A12Z&ske=2026-08-03T10%3A47%3A12Z&sks=b&skv=2018-11-09&sig=d0JqVnDQfshS%2BbcbprAkh1JHYiHpUenX%2FWwgZze%2Bkl8%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTc1NDAzMiwibmJmIjoxNzg1NzUwNDMyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.9kN-7RogRJM83AqcFgQttduThuBoO8K71kr70hhiy5Q&response-content-disposition=attachment%3B%20filename%3Dbilibili7492.apk&response-content-type=application%2Fvnd.android.package-archive" class="text-amber-400 font-bold hover:underline">Link Tải Bản Bilibili (Dự phòng)</a>.
+                    </p>
+                </div>
+
+                <!-- KHUNG 3: ANDROID — LENOVO -->
+                <div id="box-android-lenovo" class="content-box hidden border-2 border-dashed border-slate-700/80 rounded-2xl p-6 md:p-10 bg-slate-950/40 min-h-[220px]">
+                    <p class="text-slate-300 text-sm">
+                        Tải bản Lenovo Store tại <a href="http://3g.lenovomm.com/w3g/yydownload/com.netease.tom.lenovo/17071" class="text-cyan-400 font-bold hover:underline">Link Tải Kênh Lenovo</a>.
+                    </p>
+                    
+                    <p class="text-slate-300 text-sm mt-2">
+                        Link dự phòng: <a href="https://release-assets.githubusercontent.com/github-production-release-asset/1287085106/f00fe7d7-9947-482e-bd46-06fd4044cd60?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-03T10%3A47%3A12Z&rscd=attachment%3B+filename%3Dbilibili7492.apk&rsct=application%2Fvnd.android.package-archive&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-03T09%3A47%3A12Z&ske=2026-08-03T10%3A47%3A12Z&sks=b&skv=2018-11-09&sig=d0JqVnDQfshS%2BbcbprAkh1JHYiHpUenX%2FWwgZze%2Bkl8%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTc1NDAzMiwibmJmIjoxNzg1NzUwNDMyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.9kN-7RogRJM83AqcFgQttduThuBoO8K71kr70hhiy5Q&response-content-disposition=attachment%3B%20filename%3Dbilibili7492.apk&response-content-type=application%2Fvnd.android.package-archive" class="text-amber-400 font-bold hover:underline">Link Tải Bản Lenovo (Dự phòng)</a>.
+                    </p>        
+                </div>
+
+                <!-- KHUNG 4: WINDOWS (PC) -->
+                <div id="box-windows" class="content-box hidden border-2 border-dashed border-slate-700/80 rounded-2xl p-6 md:p-10 bg-slate-950/40 min-h-[220px]">
+                    <p class="text-slate-300 text-sm">
+                        Tải bộ cài cho máy tính tại <a href="https://adl.netease.com/d/g/a11/c/yxmhls" class="text-sky-400 font-bold hover:underline">Tải File PC Client (.exe)</a>.
+                    </p>
+                </div>
+
+                <!-- ========================================================================= -->
+                <!-- KHUNG 5: IOS — BẢN TRUNG (CN) -->
+                <!-- ========================================================================= -->
+                <div id="box-ios-cn" class="content-box hidden border-2 border-dashed border-slate-700/80 rounded-2xl p-6 md:p-10 bg-slate-950/40 min-h-[220px]">
+                    <!-- CHÈN CHỮ VÀ LINK TẢI BẢN IOS TRUNG QUỐC (CN) VÀO ĐÂY -->
+                    <p class="text-slate-300 text-sm">
+                        Để tải Tom and Jerry:Chase CN vui lòng chuyển vùng App Store của bạn sang Trung Quốc: Đại Lục:<a href="https://apps.apple.com/cn/app/%E7%8C%AB%E5%92%8C%E8%80%81%E9%BC%A0/id954751394" class="text-amber-400 font-bold hover:underline">Link Tom and Jerry:Chase CN trên App Store Trung Quốc</a>.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-auto py-6 text-center text-xs text-slate-500 border-t border-slate-900">
+        <p class="mb-1"><i class="fa-solid fa-gamepad mr-1"></i> Tom and Jerry: Chase CN Version — Download Link</p>
+        <p class="text-slate-600">Yêu cầu cập nhật link tải <a href="https://m.me/1253584067831908" class="text-amber-400 font-bold hover:underline"> tại đây.</a>. </p>
+    </footer>
+
+    <!-- JavaScript Logic Điều hướng -->
+    <script>
+        let currentOS = '';
+        let currentSub = '';
+
+        function selectOS(os) {
+            currentOS = os;
+            document.getElementById('step-1').classList.add('hidden');
+            document.getElementById('final-content').classList.add('hidden');
+            document.getElementById('reset-btn').classList.remove('hidden');
+
+            document.getElementById('step-2-android').classList.add('hidden');
+
+            if (os === 'android') {
+                document.getElementById('step-2-android').classList.remove('hidden');
+                updateBreadcrumb([
+                    {label: 'Android', icon: 'fa-brands fa-android', color: 'text-emerald-400'}
+                ]);
+            } else if (os === 'ios') {
+                showFinalContent('cn');
+            } else if (os === 'windows') {
+                showFinalContent('');
+            }
+        }
+
+        function showFinalContent(subKey) {
+            currentSub = subKey;
+            
+            document.getElementById('step-2-android').classList.add('hidden');
+            document.getElementById('final-content').classList.remove('hidden');
+
+            const boxes = document.querySelectorAll('.content-box');
+            boxes.forEach(box => box.classList.add('hidden'));
+
+            let targetBoxId = '';
+            let subNameDisplay = '';
+
+            if (currentOS === 'android') {
+                targetBoxId = `box-android-${subKey}`;
+                if (subKey === 'official') subNameDisplay = 'Bản chính thức';
+                if (subKey === 'bilibili') subNameDisplay = 'Bilibili';
+                if (subKey === 'lenovo') subNameDisplay = 'Lenovo';
+            } else if (currentOS === 'ios') {
+                targetBoxId = 'box-ios-cn';
+                subNameDisplay = 'Bản Trung (CN)';
+            } else {
+                targetBoxId = 'box-windows';
+            }
+
+            const activeBox = document.getElementById(targetBoxId);
+            if (activeBox) {
+                activeBox.classList.remove('hidden');
+            }
+
+            let breadcrumbItems = [];
+            
+            if (currentOS === 'android') {
+                breadcrumbItems.push({
+                    label: 'Android', 
+                    icon: 'fa-brands fa-android', 
+                    color: 'text-emerald-400',
+                    action: "selectOS('android')"
+                });
+                if (subNameDisplay) {
+                    breadcrumbItems.push({label: subNameDisplay, icon: 'fa-check', color: 'text-amber-400'});
+                }
+            } else if (currentOS === 'ios') {
+                breadcrumbItems.push({
+                    label: 'iOS (CN)', 
+                    icon: 'fa-brands fa-apple', 
+                    color: 'text-amber-400'
+                });
+            } else {
+                breadcrumbItems.push({
+                    label: 'Windows (PC)', 
+                    icon: 'fa-brands fa-windows', 
+                    color: 'text-sky-400'
+                });
+            }
+
+            updateBreadcrumb(breadcrumbItems);
+
+            const osName = currentOS === 'android' ? 'Android' : (currentOS === 'ios' ? 'iOS (Bản Trung)' : 'Windows (PC)');
+            let pathString = osName;
+            if (currentOS === 'android' && subNameDisplay) pathString += ` — ${subNameDisplay}`;
+            document.getElementById('selection-path-title').innerText = pathString;
+        }
+
+        function updateBreadcrumb(items) {
+            let html = '';
+            items.forEach((item, index) => {
+                if (index > 0) {
+                    html += `<i class="fa-solid fa-chevron-right text-[10px] text-slate-600 mx-1"></i>`;
+                }
+                
+                if (item.action) {
+                    html += `<button onclick="${item.action}" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 ${item.color} flex items-center gap-1.5 hover:bg-slate-800 hover:border-slate-700 transition-all cursor-pointer">
+                        <i class="fa-solid ${item.icon}"></i> ${item.label}
+                    </button>`;
+                } else {
+                    html += `<span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 ${item.color} flex items-center gap-1.5">
+                        <i class="fa-solid ${item.icon}"></i> ${item.label}
+                    </span>`;
+                }
+            });
+            document.getElementById('breadcrumb-container').innerHTML = html;
+        }
+
+        function resetNavigation() {
+            currentOS = '';
+            currentSub = '';
+            
+            document.getElementById('step-1').classList.remove('hidden');
+            document.getElementById('step-2-android').classList.add('hidden');
+            document.getElementById('final-content').classList.add('hidden');
+            document.getElementById('reset-btn').classList.add('hidden');
+
+            document.getElementById('breadcrumb-container').innerHTML = `
+                <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 border border-slate-700/60 text-slate-200 flex items-center gap-1.5">
+                    <i class="fa-solid fa-globe text-cyan-400"></i> Bắt đầu
+                </span>
+            `;
+        }
+    </script>
+</body>
+</html>
