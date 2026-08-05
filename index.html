@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hướng dẫn tải Tom and Jerry: Chase CN Version</title>
+    <title>Đường link tải Tom and Jerry: Chase CN Version</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- FontAwesome Icons -->
@@ -205,40 +205,41 @@
         </div>
     </main>
 
-    <!-- Footer gọn gàng, đẩy cao vừa phải trên mọi máy -->
+    <!-- Footer -->
     <footer class="py-4 pb-6 text-center text-xs text-slate-500 border-t border-slate-900/80">
         <p class="mb-1"><i class="fa-solid fa-gamepad mr-1"></i> Tom and Jerry: Chase CN Version — Download Link</p>
         <p class="text-slate-600">Yêu cầu cập nhật link tải <a href="https://m.me/1253584067831908" class="text-amber-400 font-bold hover:underline"> tại đây.</a>. </p>
     </footer>
 
-    <!-- JavaScript Logic Điều hướng & Lưu URL Hash -->
+    <!-- JavaScript Navigation với Path URL sạch (History API) -->
     <script>
         let currentOS = '';
         let currentSub = '';
 
-        // Hàm cập nhật URL Hash
+        // Cập nhật URL bằng History API mà không có dấu #
         function navigateTo(os, sub = '') {
-            if (!os) {
-                if (window.location.hash) {
-                    history.pushState("", document.title, window.location.pathname + window.location.search);
-                }
-                handleRoute();
-                return;
+            let path = '/';
+            if (os) {
+                path = '/' + os;
+                if (sub) path += '/' + sub;
             }
-            let hash = os;
-            if (sub) hash += '/' + sub;
-            window.location.hash = hash;
+            
+            if (window.location.pathname !== path) {
+                history.pushState(null, '', path);
+            }
+            handleRoute();
         }
 
-        // Hàm xử lý hiển thị giao diện dựa vào Hash trên URL
+        // Xử lý đọc URL pathname hiện tại
         function handleRoute() {
-            const hash = window.location.hash.replace(/^#\/?/, '').trim();
-            if (!hash) {
+            // Lấy pathname và loại bỏ các dấu / ở đầu/cuối
+            const path = window.location.pathname.replace(/^\/+|\/+$/g, '').trim();
+            if (!path) {
                 showStep1UI();
                 return;
             }
 
-            const parts = hash.split('/');
+            const parts = path.split('/');
             const os = parts[0].toLowerCase();
             const sub = parts[1] ? parts[1].toLowerCase() : '';
 
@@ -372,8 +373,8 @@
             document.getElementById('breadcrumb-container').innerHTML = html;
         }
 
-        // Đăng ký sự kiện thay đổi hash URL và khi tải lại trang (F5)
-        window.addEventListener('hashchange', handleRoute);
+        // Lắng nghe nút Back/Forward của trình duyệt và khởi tạo khi tải trang
+        window.addEventListener('popstate', handleRoute);
         window.addEventListener('DOMContentLoaded', handleRoute);
     </script>
 </body>
