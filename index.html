@@ -205,41 +205,40 @@
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer gọn gàng, đẩy cao vừa phải trên mọi máy -->
     <footer class="py-4 pb-6 text-center text-xs text-slate-500 border-t border-slate-900/80">
         <p class="mb-1"><i class="fa-solid fa-gamepad mr-1"></i> Tom and Jerry: Chase CN Version — Download Link</p>
         <p class="text-slate-600">Yêu cầu cập nhật link tải <a href="https://m.me/1253584067831908" class="text-amber-400 font-bold hover:underline"> tại đây.</a>. </p>
     </footer>
 
-    <!-- JavaScript Navigation với Path URL sạch (History API) -->
+    <!-- JavaScript Logic Điều hướng & Lưu URL Hash -->
     <script>
         let currentOS = '';
         let currentSub = '';
 
-        // Cập nhật URL bằng History API mà không có dấu #
+        // Hàm cập nhật URL Hash
         function navigateTo(os, sub = '') {
-            let path = '/';
-            if (os) {
-                path = '/' + os;
-                if (sub) path += '/' + sub;
+            if (!os) {
+                if (window.location.hash) {
+                    history.pushState("", document.title, window.location.pathname + window.location.search);
+                }
+                handleRoute();
+                return;
             }
-            
-            if (window.location.pathname !== path) {
-                history.pushState(null, '', path);
-            }
-            handleRoute();
+            let hash = os;
+            if (sub) hash += '/' + sub;
+            window.location.hash = hash;
         }
 
-        // Xử lý đọc URL pathname hiện tại
+        // Hàm xử lý hiển thị giao diện dựa vào Hash trên URL
         function handleRoute() {
-            // Lấy pathname và loại bỏ các dấu / ở đầu/cuối
-            const path = window.location.pathname.replace(/^\/+|\/+$/g, '').trim();
-            if (!path) {
+            const hash = window.location.hash.replace(/^#\/?/, '').trim();
+            if (!hash) {
                 showStep1UI();
                 return;
             }
 
-            const parts = path.split('/');
+            const parts = hash.split('/');
             const os = parts[0].toLowerCase();
             const sub = parts[1] ? parts[1].toLowerCase() : '';
 
@@ -373,8 +372,8 @@
             document.getElementById('breadcrumb-container').innerHTML = html;
         }
 
-        // Lắng nghe nút Back/Forward của trình duyệt và khởi tạo khi tải trang
-        window.addEventListener('popstate', handleRoute);
+        // Đăng ký sự kiện thay đổi hash URL và khi tải lại trang (F5)
+        window.addEventListener('hashchange', handleRoute);
         window.addEventListener('DOMContentLoaded', handleRoute);
     </script>
 </body>
