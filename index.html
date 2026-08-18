@@ -112,38 +112,56 @@
                 </div>
             </div>
 
-            <!-- ================= STEP 2: CHỌN KÊNH TẢI ANDROID ================= -->
+            <!-- ================= STEP 2: CHỌN PHIÊN BẢN ANDROID ================= -->
             <div id="step-2-android" class="step-transition hidden">
+                <div class="text-center mb-6">
+                    <h2 class="text-lg md:text-xl font-bold text-white mb-1">Chọn phiên bản Android</h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
+                    <!-- Phiên bản chính thức -->
+                    <button onclick="navigateTo('android', 'official')" class="group text-center p-6 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-amber-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-200 group-hover:text-amber-400 mb-1">Phiên bản chính thức</h3>
+                        <p class="text-[11px] text-slate-500 font-medium">Official Server APK</p>
+                    </button>
+
+                    <!-- Phiên bản kênh -->
+                    <button onclick="navigateTo('android', 'channels')" class="group text-center p-6 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-cyan-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-200 group-hover:text-cyan-400 mb-1">Phiên bản kênh</h3>
+                        <p class="text-[11px] text-slate-500 font-medium">Lenovo, Tencent...</p>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ================= STEP 3: CHỌN KÊNH TẢI (PHIÊN BẢN KÊNH) ================= -->
+            <div id="step-3-channels" class="step-transition hidden">
                 <div class="text-center mb-6">
                     <h2 class="text-lg md:text-xl font-bold text-white mb-1">Chọn kênh tải Android</h2>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
-                    <!-- Bản chính thức -->
-                    <button onclick="navigateTo('android', 'official')" class="group text-center p-5 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-amber-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
-                        <div class="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-lg mb-3 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-store"></i>
-                        </div>
-                        <h3 class="text-sm font-bold text-slate-200 group-hover:text-amber-400 mb-0.5">Bản chính thức</h3>
-                        <p class="text-[10px] text-slate-500 uppercase font-medium">Official APK</p>
-                    </button>
-
-                    <!-- Bilibili -->
-                    <button onclick="navigateTo('android', 'bilibili')" class="group text-center p-5 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-pink-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
-                        <div class="w-11 h-11 rounded-xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-400 text-lg mb-3 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-tv"></i>
-                        </div>
-                        <h3 class="text-sm font-bold text-slate-200 group-hover:text-pink-400 mb-0.5">Bilibili</h3>
-                        <p class="text-[10px] text-slate-500 uppercase font-medium">Bilibili Channel</p>
-                    </button>
-
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
                     <!-- Lenovo -->
-                    <button onclick="navigateTo('android', 'lenovo')" class="group text-center p-5 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-cyan-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
+                    <button onclick="navigateTo('android/channels', 'lenovo')" class="group text-center p-5 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-cyan-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
                         <div class="w-11 h-11 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-lg mb-3 group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-tablet-screen-button"></i>
                         </div>
                         <h3 class="text-sm font-bold text-slate-200 group-hover:text-cyan-400 mb-0.5">Lenovo</h3>
                         <p class="text-[10px] text-slate-500 uppercase font-medium">Lenovo Store</p>
+                    </button>
+
+                    <!-- Tencent -->
+                    <button onclick="navigateTo('android/channels', 'tencent')" class="group text-center p-5 rounded-2xl bg-slate-950/60 border-2 border-slate-800 hover:border-emerald-500/80 transition-all duration-300 cursor-pointer flex flex-col items-center">
+                        <div class="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-lg mb-3 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <h3 class="text-sm font-bold text-slate-200 group-hover:text-emerald-400 mb-0.5">Tencent</h3>
+                        <p class="text-[10px] text-slate-500 uppercase font-medium">YingYongBao</p>
                     </button>
                 </div>
             </div>
@@ -164,32 +182,32 @@
                     </p>
                 </div>
 
-                <!-- KHUNG 2: ANDROID — BILIBILI -->
-                <div id="box-android-bilibili" class="content-box hidden border-2 border-dashed border-slate-700/80 rounded-2xl p-6 md:p-10 bg-slate-950/40 min-h-[220px]">
-                    <p class="text-slate-300 text-sm">
-                        Tải bản Bilibili tại <a href="https://pkg.biligame.com/games/mhls_7.49.2_1_20260612_113743_1f3a6.apk" class="text-pink-400 font-bold hover:underline">Link Tải Kênh Bilibili</a>.
-                    </p>
-                    
-                    <p class="text-slate-300 text-sm mt-2">
-                        Link dự phòng: <a href="https://github.com/gnaohCobalt/tjapk/releases/download/Version/bilibili7492.apk" class="text-amber-400 font-bold hover:underline">Link Tải Bản Bilibili (Dự phòng)</a>.
-                    </p>
-                </div>
-
-                <!-- KHUNG 3: ANDROID — LENOVO -->
+                <!-- KHUNG 2: ANDROID — LENOVO -->
                 <div id="box-android-lenovo" class="content-box hidden border-2 border-dashed border-slate-700/80 rounded-2xl p-6 md:p-10 bg-slate-950/40 min-h-[220px]">
                     <p class="text-slate-300 text-sm">
                         Tải bản Lenovo Store tại <a href="http://3g.lenovomm.com/w3g/yydownload/com.netease.tom.lenovo/17071" class="text-cyan-400 font-bold hover:underline">Link Tải Kênh Lenovo</a>.
                     </p>
                     
                     <p class="text-slate-300 text-sm mt-2">
-                        Link dự phòng: <a href="https://github.com/gnaohCobalt/tjapk/releases/download/Version/lenovo7492.apk" class="text-amber-400 font-bold hover:underline">Link Tải Bản Lenovo (Dự phòng)</a>.
+                        Link dự phòng: <a href="https://github.com/gnaohCobalt/tjapk/releases/download/Version/Lenovo7492.apk" class="text-amber-400 font-bold hover:underline">Link Tải Bản Lenovo (Dự phòng)</a>.
+                    </p>        
+                </div>
+
+                <!-- KHUNG 3: ANDROID — TENCENT -->
+                <div id="box-android-tencent" class="content-box hidden border-2 border-dashed border-slate-700/80 rounded-2xl p-6 md:p-10 bg-slate-950/40 min-h-[220px]">
+                    <p class="text-slate-300 text-sm">
+                        Tải bản Tencent tại <a href="#" class="text-emerald-400 font-bold hover:underline">!Phiên bản Tencent hiện chỉ có link dự phòng</a>.
+                    </p>
+                    
+                    <p class="text-slate-300 text-sm mt-2">
+                        Link dự phòng: <a href="https://github.com/gnaohCobalt/tjapk/releases/download/Version/Tencent7492.apk" class="text-amber-400 font-bold hover:underline">Link Tải Bản Tencent (Dự phòng)</a>.
                     </p>        
                 </div>
 
                 <!-- KHUNG 4: WINDOWS (PC) -->
                 <div id="box-windows" class="content-box hidden border-2 border-dashed border-slate-700/80 rounded-2xl p-6 md:p-10 bg-slate-950/40 min-h-[220px]">
                     <p class="text-slate-300 text-sm">
-                        Tải bộ cài cho máy tính tại <a href="https://adl.netease.com/d/g/a11/c/yxmhls" class="text-sky-400 font-bold hover:underline">Tải File PC Client (.exe)</a>.
+                        Ở máy tính bạn có thể cài đặt giả lập như <a href="https://www.mumuplayer.com/download/" class="text-sky-400 font-bold hover:underline">Mumu Player</a>, <a href="https://mumu.163.com/download/" class="text-sky-400 font-bold hover:underline">Mumu Player Trung Quốc</a>, hoặc các giả lập khác sau đó đi qua <a href="javascript:void(0)" onclick="navigateTo('android')" class="text-sky-400 font-bold hover:underline">Mục android</a> để tìm và tải file apk của game để cài đặt.
                     </p>
                 </div>
 
@@ -213,9 +231,6 @@
 
     <!-- JavaScript Logic Điều hướng & Lưu URL Hash -->
     <script>
-        let currentOS = '';
-        let currentSub = '';
-
         // Hàm cập nhật URL Hash
         function navigateTo(os, sub = '') {
             if (!os) {
@@ -240,20 +255,24 @@
 
             const parts = hash.split('/');
             const os = parts[0].toLowerCase();
-            const sub = parts[1] ? parts[1].toLowerCase() : '';
+            const p1 = parts[1] ? parts[1].toLowerCase() : '';
+            const p2 = parts[2] ? parts[2].toLowerCase() : '';
 
             if (os === 'android') {
-                currentOS = 'android';
-                if (sub && ['official', 'bilibili', 'lenovo'].includes(sub)) {
-                    showFinalContentUI('android', sub);
+                if (p1 === 'official') {
+                    showFinalContentUI('android', 'official');
+                } else if (p1 === 'channels') {
+                    if (['lenovo', 'tencent'].includes(p2)) {
+                        showFinalContentUI('android', p2);
+                    } else {
+                        showStep3ChannelsUI();
+                    }
                 } else {
                     showStep2AndroidUI();
                 }
             } else if (os === 'ios') {
-                currentOS = 'ios';
                 showFinalContentUI('ios', 'cn');
             } else if (os === 'windows') {
-                currentOS = 'windows';
                 showFinalContentUI('windows', '');
             } else {
                 showStep1UI();
@@ -261,10 +280,9 @@
         }
 
         function showStep1UI() {
-            currentOS = '';
-            currentSub = '';
             document.getElementById('step-1').classList.remove('hidden');
             document.getElementById('step-2-android').classList.add('hidden');
+            document.getElementById('step-3-channels').classList.add('hidden');
             document.getElementById('final-content').classList.add('hidden');
             document.getElementById('reset-btn').classList.add('hidden');
 
@@ -278,6 +296,7 @@
         function showStep2AndroidUI() {
             document.getElementById('step-1').classList.add('hidden');
             document.getElementById('step-2-android').classList.remove('hidden');
+            document.getElementById('step-3-channels').classList.add('hidden');
             document.getElementById('final-content').classList.add('hidden');
             document.getElementById('reset-btn').classList.remove('hidden');
 
@@ -286,12 +305,23 @@
             ]);
         }
 
-        function showFinalContentUI(os, subKey) {
-            currentOS = os;
-            currentSub = subKey;
-
+        function showStep3ChannelsUI() {
             document.getElementById('step-1').classList.add('hidden');
             document.getElementById('step-2-android').classList.add('hidden');
+            document.getElementById('step-3-channels').classList.remove('hidden');
+            document.getElementById('final-content').classList.add('hidden');
+            document.getElementById('reset-btn').classList.remove('hidden');
+
+            updateBreadcrumb([
+                {label: 'Android', icon: 'fa-brands fa-android', color: 'text-emerald-400', action: "navigateTo('android')"},
+                {label: 'Phiên bản kênh', icon: 'fa-solid fa-layer-group', color: 'text-cyan-400'}
+            ]);
+        }
+
+        function showFinalContentUI(os, subKey) {
+            document.getElementById('step-1').classList.add('hidden');
+            document.getElementById('step-2-android').classList.add('hidden');
+            document.getElementById('step-3-channels').classList.add('hidden');
             document.getElementById('final-content').classList.remove('hidden');
             document.getElementById('reset-btn').classList.remove('hidden');
 
@@ -304,8 +334,8 @@
             if (os === 'android') {
                 targetBoxId = `box-android-${subKey}`;
                 if (subKey === 'official') subNameDisplay = 'Bản chính thức';
-                if (subKey === 'bilibili') subNameDisplay = 'Bilibili';
                 if (subKey === 'lenovo') subNameDisplay = 'Lenovo';
+                if (subKey === 'tencent') subNameDisplay = 'Tencent';
             } else if (os === 'ios') {
                 targetBoxId = 'box-ios-cn';
                 subNameDisplay = 'Bản Trung (CN)';
@@ -327,8 +357,19 @@
                     color: 'text-emerald-400',
                     action: "navigateTo('android')"
                 });
-                if (subNameDisplay) {
-                    breadcrumbItems.push({label: subNameDisplay, icon: 'fa-check', color: 'text-amber-400'});
+
+                if (subKey === 'official') {
+                    breadcrumbItems.push({label: 'Phiên bản chính thức', icon: 'fa-check', color: 'text-amber-400'});
+                } else {
+                    breadcrumbItems.push({
+                        label: 'Phiên bản kênh', 
+                        icon: 'fa-solid fa-layer-group', 
+                        color: 'text-cyan-400',
+                        action: "navigateTo('android', 'channels')"
+                    });
+                    if (subNameDisplay) {
+                        breadcrumbItems.push({label: subNameDisplay, icon: 'fa-check', color: 'text-amber-400'});
+                    }
                 }
             } else if (os === 'ios') {
                 breadcrumbItems.push({
